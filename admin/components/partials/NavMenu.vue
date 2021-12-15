@@ -15,10 +15,10 @@
       <i class="fas fa-television"></i>Brands
     </nuxt-link>
     </li>
-    <li>
-      <a href="#">
+    <li :class="{active: this.$route.path.indexOf('product') !== -1}">
+      <nuxt-link to="/product">
         <i class="fas fa-shopping-cart"></i>Products
-      </a>
+      </nuxt-link>
     </li>
     <li>
       <a href="#">
