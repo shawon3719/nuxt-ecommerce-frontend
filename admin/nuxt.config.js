@@ -43,6 +43,10 @@ export default {
       {
         src: '/vendor/bootstrap-4.1/bootstrap.min.js',
         type: 'text/javascript'
+      },
+      {
+        src: 'https://js.pusher.com/7.0/pusher.min.js',
+        type: 'text/javascript'
       }
     ]
   },
@@ -50,12 +54,17 @@ export default {
   ** Global CSS
   */
   css: [
+    'quill/dist/quill.core.css',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/pusher.js',
+    '~/plugins/toastr.js'
   ],
   /*
   ** Auto import components
@@ -74,21 +83,25 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     // 'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-      baseURL: 'http://localhost/online-shop-backend/public/'
+    baseURL: 'http://localhost/online-shop-backend/public/'
   },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+
   },
   srcDir: __dirname,
-  buildDir: '.nuxt/admin'
+  buildDir: '.nuxt/admin',
+  env: {
+    PUSHER_APP_KEY: "your pusher app key"
+  }
 }
